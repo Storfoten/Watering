@@ -243,7 +243,7 @@ void handleWatering()
         }
         else if((_wateringState == 9) && (_valveOnTimer.TimeIsUp()))
         {
-            closeValve(_mainValve);
+            closeValve(8);
             _wateringState++;
             _valveTransTimer.ResetTimer();
             _valveTransTimer.Start();
@@ -256,6 +256,7 @@ void handleWatering()
             _valveTransTimer.ResetTimer();
             if(_wateringState == 10)
             {
+                closeValve(_mainValve);
                 _wateringStarted = false;
                 //        alarm.activateAlarm(true);
                 _wateringState = 0;
